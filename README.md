@@ -1,8 +1,17 @@
 # Intro
 
+This module enables ZFS on Ubuntu based machines, it enables:
+
+* Setting up ZFS PPA
+* ZFS module customizations (mainly ARC size)
+* Adding ZFS user that allows any user to perform zfs operations (without sudo).
+* Adding support for zfs send/recieve over netcat
+
 # Usage
 
-TBD
+```puppet
+  include zfs
+```
 
 # Copyright and license
 
