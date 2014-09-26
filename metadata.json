@@ -1,0 +1,17 @@
+{
+  "name": "puppet-zfs",
+  "version": "0.1.0",
+  "author": "narkisr",
+  "summary": "Ubuntu ZFS module",
+  "license": "Apache 2.0",
+  "source": "https://github.com/narkisr/puppet-zfs",
+  "project_page": "https://github.com/narkisr/puppet-zfs",
+  "issues_url": "https://github.com/narkisr/puppet-zfs/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
+
