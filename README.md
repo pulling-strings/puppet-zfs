@@ -2,12 +2,21 @@
 
 This module enables ZFS on Ubuntu based machines, it enables:
 
-* Setting up ZFS PPA
-* ZFS module customizations (mainly ARC size)
-* Adding ZFS user that allows any user to perform zfs operations (without sudo).
-* Adding support for zfs send/recieve over netcat
+* Setting up PPA and package installation.
+* ZFS module customizations (mainly ARC size).
+* Adding zfs user that allows any user to perform ZFS operations (without sudo).
+* Adding support for send/recieve over netcat.
 
 # Usage
+
+Add to your Puppetfile
+
+```ruby
+mod 'strings/zfs',
+   :git => 'git://github.com/pulling-strings/puppet-zfs.git'
+```
+
+Within your puppet code:
 
 ```puppet
   include zfs
