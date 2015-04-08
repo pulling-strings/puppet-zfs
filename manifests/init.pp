@@ -1,6 +1,5 @@
 # ZFS setup on Ubuntu (including send/recieve support over netcat).
 class zfs {
-  ensure_resource('class','apt',{})
   include zfs::user
   include zfs::sync
 
