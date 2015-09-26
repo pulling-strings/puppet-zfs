@@ -3,26 +3,29 @@ class zfs {
   include zfs::user
   include zfs::sync
 
-  apt::ppa{'ppa:zfs-native/stable':} ->
+  apt::ppa{'ppa:zfs-native/stable':
+    package_manage => true
+  } ->
 
   package{'ubuntu-zfs':
-    ensure  => present
+    ensure  => present,
+    require => Class['apt::update']
   } ->
 
   file {'/etc/modprobe.d/zfs.conf' :
-    ensure=> file,
-    mode  => '0644',
-    source=> 'puppet:///modules/zfs/zfs.conf',
-    owner => root,
-    group => root,
+    ensure => file,
+    mode   => '0644',
+    source => 'puppet:///modules/zfs/zfs.conf',
+    owner  => root,
+    group  => root,
   } ->
 
   file { '/etc/udev/rules.d/91-zfs-permissions.rules':
-    ensure=> file,
-    mode  => '0644',
-    source=> 'puppet:///modules/zfs/91-zfs-permissions.rules',
-    owner => root,
-    group => root,
+    ensure => file,
+    mode   => '0644',
+    source => 'puppet:///modules/zfs/91-zfs-permissions.rules',
+    owner  => root,
+    group  => root,
   }
 
 }
