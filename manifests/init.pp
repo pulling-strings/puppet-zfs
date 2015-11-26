@@ -4,7 +4,6 @@ class zfs {
   include zfs::sync
 
   apt::ppa{'ppa:zfs-native/stable':
-    package_manage => true
   } ->
 
   package{'ubuntu-zfs':
