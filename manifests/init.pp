@@ -4,7 +4,7 @@ class zfs {
   include zfs::sync
 
   # see http://askubuntu.com/questions/691576/zfs-broken-after-upgrading-to-15-10
-  if $::lsbdistrelease == '15.04' {
+  if versioncmp($::lsbdistrelease , '15.04') <= 0 {
     $zfs_package = 'ubuntu-zfs'
 
     apt::ppa{'ppa:zfs-native/stable':
@@ -14,7 +14,7 @@ class zfs {
       ensure  => present,
       require => Class['apt::update']
     }
-  } elsif $::lsbdistrelease == '15.10' {
+  } else {
     $zfs_package = 'zfsutils-linux'
 
     apt::ppa{'ppa:zfs-native/stable':
